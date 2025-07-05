@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import data from "./sampleTexts.json";
 import styled from 'styled-components';
+import "./App.css";
 
 function App() {
   const [text, setText] = useState("");
@@ -15,7 +16,7 @@ function App() {
 
 
   const getTypingLevel = (wpm) => {
-    if (wpm < 20) return "Very slow (<20 WPM)";
+    if (wpm < 20) return "Very slow (< 20WPM)";
     if (wpm < 40) return "Beginner (20–39 WPM)";
     if (wpm < 60) return "Average (40–59 WPM)";
     if (wpm < 80) return "Proficient (60–79 WPM)";
@@ -130,7 +131,7 @@ const Container = styled.div`
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-family: Arial, sans-serif;
 
   @media (max-width: 768px) {
@@ -146,13 +147,17 @@ const Title = styled.h1`
 `;
 
 const SampleText = styled.div`
-margin: 1rem 0 1rem 0;
-font-style: italic; 
-color: #333;
+ margin-bottom: 1rem;
+  padding: 1rem;
+  border: 2px solid rgb(186, 127, 127);
+  border-radius: 8px; 
+  background-color: #f9f9f9;
+  font-style: italic;
+  color: #333;
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
+  width: 95%;
   padding: 1rem;
   font-size: 1rem;
   border-radius: 6px;
