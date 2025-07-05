@@ -65,7 +65,7 @@ function App() {
 
   const analyzeText = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/analyze", {
+      const response = await axios.post("https://text-analysis-api-eykh.onrender.com", {
         text: text,
       });
       setResult(response.data);
