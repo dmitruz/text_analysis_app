@@ -24,6 +24,10 @@ function App() {
     return "Advanced (100+ WPM)";
   };
 
+  const getRandomSample = () => {
+    const randomIndex = Math.floor(Math.random() * data.sampleTexts.length);
+    return data.sampleTexts[randomIndex];
+  };
 
   // Start countdown when typing begins
   const handleTextChange = (e) => {
@@ -35,6 +39,7 @@ function App() {
       setIsDisabled(true); // lock buttons
     }
   };
+
 
   // Countdown effect
   useEffect(() => {
@@ -53,9 +58,9 @@ function App() {
   }, [hasStarted, timer]);
 
   // random text effect
+
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * data.sampleTexts.length);
-    setTextToType(data.sampleTexts[randomIndex]);
+    setTextToType(getRandomSample());
   }, []);
 
   const analyzeText = async () => {
@@ -79,6 +84,8 @@ function App() {
     setTimer(60);
     setHasStarted(false);
     setIsDisabled(true);
+    setTypingLevel("");
+    setTextToType(getRandomSample())
   };
 
   return (
